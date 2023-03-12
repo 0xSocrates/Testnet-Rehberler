@@ -45,4 +45,11 @@ narunocli --narunoexport
 
 ## Ardından sunucuda `/usr/local/lib/python3.8/dist-packages/naruno/backups/` altındaki .zip dosyasını indirip yedek alabilirsiniz
 
+## Başka bir sunucuya taşımak isterseniz bu komutu kullanabilirsiniz
+```
+narunocli --narunoimport zip_dosya_yolu
+```
+## Zip dosyasını yeni sunucuda `/root` altına yüklediyseniz dosya yolu `/root/..dosyaismi..zip` gibi olur
+
+
 
