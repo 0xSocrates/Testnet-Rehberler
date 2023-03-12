@@ -42,3 +42,7 @@ narunocli --printwallet
 ```
 narunocli --narunoexport
 ```
+
+## Ardından sunucuda `/usr/local/lib/python3.8/dist-packages/naruno/backups/` altındaki .zip dosyasını indirip yedek alabilirsiniz
+
+
