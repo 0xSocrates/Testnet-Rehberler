@@ -1,2 +1,2 @@
 # Testnet--Rehberler
-Katıldığım testnetlerin kurulum ve varsa görevlerinin rehberleri
+Katıldığım testnetlerin kurulum ve görevlerinin rehberleri
