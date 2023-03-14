@@ -151,11 +151,13 @@ nano get.py
 from naruno.apps.remote_app import Integration
 
 integration = Integration("Your_App_Name", password="Your_Wallet_Password", host="localhost")
+integration.disable_cache()
 
 from naruno.lib.settings_system import baklava_settings
 baklava_settings(True)
 
 print(integration.get())
+
 ```
 > Dosyaya yetki verin
 ```
