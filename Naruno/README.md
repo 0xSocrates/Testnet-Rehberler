@@ -148,7 +148,9 @@ python3 get.py
 
 > ### ***Arkadaşlar yapılacak işlemler şu an için bu kadar, gelişmeler için Naruna hesaplarını takip etmeyi unutmayın***
 > Bu örnekte Narunonun send ve get işlevlerini kullanarak basit bir mesajlaşma uygulaması yaptık.
+> 
 > Bu fonksiyonlar kullanılarak her türlü uygulamanın web3'e kolay entegrasyonu sağlanabilir.
+> 
 > Uygulama geliştirmek ve Naruno aracılığıyla bunları web3'e entegre etmek ile ilgilenen veya bu konuda bilgi sahibi olmak isteyenler  [NarunoDocs](https://docs.naruno.org/) ve [NarunoGithub](https://github.com/Naruno)'a göz atabilirsiniz. Ayrıca [Discord](https://discord.gg/NGapgYxd)'a katılıp her türlü sorunuzu sorup ekiple görüşebilirsiniz
 
 
