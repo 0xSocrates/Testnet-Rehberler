@@ -69,6 +69,8 @@ pip3 install naruno-api
 ```
 narunoapi &
 ```
+![image](https://user-images.githubusercontent.com/108215275/225104332-05c37d30-a405-4ee8-9b7a-47b7ea4d47a9.png)
+> Bu çıktıdan sonra 'Enter' basıp geçin
 
 # Sıradaki adım Naruno üzerinde bir app oluşturmak
 > Buradaki örnekte mesaj gönderebileceğimiz bir app yapıyoruz.
