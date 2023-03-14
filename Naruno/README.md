@@ -13,7 +13,7 @@
 > ## ***Bu rehberi hazırlarken yararlandığım kaynak [NarunoDocs](https://docs.naruno.org/)***
 > 
 > ## ***Arkadaşlar Naruno Baklava Testnet başladı. Daha önce mail alıp cüzdan oluşturduysanız cüzdanınıza test tokenları gönderildi, artık baklava testnete katılabilirsiniz***
-> ### ***Eğer daha önce kurulum yapıp cüzdan oluşturmadıysanız önce o işlemi yapın [CüzdanOLuşturma](https://github.com/0xSocrates/Testnet-Rehberler/blob/main/Naruno/C%C3%BCzdan-Olu%C5%9Fturma.md).***
+> ### ***Eğer daha önce kurulum yapıp cüzdan oluşturmadıysanız önce o işlemi yapın [Naruno Kurulum ve Cüzdan Oluşturma](https://github.com/0xSocrates/Testnet-Rehberler/blob/main/Naruno/C%C3%BCzdan-Olu%C5%9Fturma.md).***
 > ### ***Bir tarayıcıya aşağıdaki linkte cüzdan adresinizi yazıp bakiyenizi kontrol edin.***
 ```
 http://test_net.1.naruno.org:8000/balance/get/?address=CüzdanAdresi
