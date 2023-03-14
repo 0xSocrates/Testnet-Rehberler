@@ -38,14 +38,9 @@ narunocli --narunoexport
 ```
 cd /root
 pip3 uninstall Naruno -y
+pip3 install naruno --no-cache
 ```
-![image](https://user-images.githubusercontent.com/108215275/225011529-403c221d-a953-49fc-beea-bc27ab463d2a.png)
-
-```
-pip3 install naruno==0.45.1
-```
-
-![image](https://user-images.githubusercontent.com/108215275/225011890-40309674-7ac4-43b3-8500-aa318d8de1c2.png)
+![image](https://user-images.githubusercontent.com/108215275/225120173-6c0fefc3-5ecd-4c4c-8986-27b4d288cc5b.png)
 
 > ## ***Cüzdanı import etme***
 
@@ -69,8 +64,19 @@ pip3 install naruno-api
 ```
 narunoapi &
 ```
-![image](https://user-images.githubusercontent.com/108215275/225104332-05c37d30-a405-4ee8-9b7a-47b7ea4d47a9.png)
+
+![image](https://user-images.githubusercontent.com/108215275/225120443-9903e494-3baa-465c-a28c-679e3dca9486.png)
+
 > Bu çıktıdan sonra 'Enter' basıp geçin
+
+> Cüzdan bakiyenizi görmek için
+```
+narunocli --getbalance
+```
+![image](https://user-images.githubusercontent.com/108215275/225121211-5d364256-210d-4970-bdfd-75591974c409.png)
+
+
+
 
 # Sıradaki adım Naruno üzerinde bir app oluşturmak
 > Buradaki örnekte mesaj gönderebileceğimiz bir app yapıyoruz.
