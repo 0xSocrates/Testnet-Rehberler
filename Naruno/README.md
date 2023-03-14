@@ -148,8 +148,7 @@ python3 get.py
 ```
 
 > ### ***Arkadaşlar yapılacak işlemler şu an için bu kadar, gelişmeler için Naruna hesaplarını takip etmeyi unutmayın***
-> ### ***Buradaki örnekte bir mesaj gönderme uygulaması yaptık. Python dilini bilen herkes istediği gibi uygulama yapıp test edebilir***
-> ### ***Eğer bu konuda deneyiminiz varsa ve Naruno üzerinde bir uygulama yapmak istiyorsanız bu konuda discordda yardım alabilirsiniz ve ekiple görüşebilirsiniz***
+
 
 
 
