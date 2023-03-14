@@ -111,11 +111,22 @@ integration.send("Your_Action_Name", "Your_Data", "Recipient_Address")
 ```
 chmod +x send.py
 ```
+> İşlem göndermeden önce cüzdanı değiştirin
+```
+narinocli -w 1
+```
+![image](https://user-images.githubusercontent.com/108215275/225107970-ce451414-6e91-4bd5-8bd8-b8c0819346ac.png)
+
 > Çalıştırın
 ```
 python3 send.py
 ```
-**
+![image](https://user-images.githubusercontent.com/108215275/225108398-497fb49f-69ab-4334-8e87-2a7d455b26c4.png)
+> Başarılı işlem yukarıdaki gibi çıktı verir
+>
+> [Explorera](http://scan.test_net.1.naruno.org/) gidip sağ alttaki `Validating List` butonuna bir kere tıklayıp bekledikten sonra işleminiz altta görünecektir
+
+
 > Şimdi de gelen mesajları görmek için bir python dosyası oluşturun( root dizini içinde olmalısınız)
 ```
 nano get.py
@@ -123,6 +134,7 @@ nano get.py
 > Aşağıdaki komutları get.py içine kopyalayın.. Ve " " içindekileri aşağıdaki notlar gibi düzenleyin
 
 > `Your_App_Name` yerine sizin oluşturacağınız uygulama adı örn:whatshapp
+>
 > `Your_Wallet_Password` yerine sizin cüzdan oluştururken kullandığınız şifreyi yazın
 
 > Bu işlemleri yaptıktan sonra CTRL ve X ardından y ve Enter tuşuna basıp kaydedin.
@@ -148,7 +160,7 @@ chmod +x get.py
 python3 get.py
 ```
 
-> ### ***Arkadaşlar yapılacak işlemler şu an için bu kadar, gelişmeler için Naruna hesaplarını takip etmeyi unutmayın***
+> ### ***Arkadaşlar yapılacak işlemler şu an için bu kadar, gelişmeler için Naruno hesaplarını takip etmeyi unutmayın***
 > Bu örnekte Narunonun send ve get işlevlerini kullanarak basit bir mesajlaşma uygulaması yaptık.
 > 
 > Bu fonksiyonlar kullanılarak her türlü uygulamanın web3'e kolay entegrasyonu sağlanabilir.
