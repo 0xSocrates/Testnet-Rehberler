@@ -120,7 +120,7 @@ chmod +x send.py
 ```
 > İşlem göndermeden önce cüzdanı değiştirin
 ```
-narinocli -w 1
+narunocli -w 1
 ```
 ![image](https://user-images.githubusercontent.com/108215275/225107970-ce451414-6e91-4bd5-8bd8-b8c0819346ac.png)
 
