@@ -1,3 +1,8 @@
+<h1 align="center"> Gitshock Cartenz Chain </h1>
+
+
+
+
 ```
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev jq build-essential git screen make ncdu -y
 ```
@@ -71,7 +76,7 @@ erigon --datadir "cartenz-data" init execution/genesis.json
 > identity kısmına kendi isminizi yazın.
 ```
 nohup erigon \
---datadir "/root/cartenz-data"  \
+--datadir "/root/testnet-list/cartenz-data"  \
 --externalcl \
 --networkid=1881 \
 --authrpc.jwtsecret="/root/testnet-list/jwt.hex" \
@@ -108,7 +113,7 @@ birinci consensus layeri
 nohup lighthouse \
 --testnet-dir="/root/testnet-list/consensus" \
 bn \
---datadir /root/.cartenz/beacon-1 \
+--datadir /root/testnet-list/beacon-1 \
 --eth1 \
 --http \
 --gui \
@@ -123,7 +128,7 @@ bn \
 --graffiti "Platon" \
 --jwt-secrets="/root/testnet-list/jwt.hex" \
 --suggested-fee-recipient=0xcC464A650e0697d3D5709aec7e9F83C994c0862e \
-> /root/logs/beacon_1.log &
+> /root/testnet-list/logs/beacon_1.log &
 ```
 
 
