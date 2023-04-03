@@ -23,9 +23,6 @@
 > - Cartenz chain kaynak dosyalarının kurulumu
 > - Execution layer çalıştırma
 > - Birinci ve ardından ikinci consensus layerlerini çalıştırma
-> - Senkronize olmayı beklemek
-> - Valiadtörünüz için anahtar çiftleri oluşturmak (cüzdan)
-> - Bunun için gitshockun `staking-deposit-cli` aracını kurmak gerekecek.
 > - Validatör node başlatmak
 
 
