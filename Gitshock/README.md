@@ -1,11 +1,88 @@
 <h1 align="center"> Gitshock Cartenz Chain </h1>
+<div align="center">
 
 
 
 
+
+![image](https://user-images.githubusercontent.com/108215275/229382287-58aae37d-cab5-4b8e-85c9-c6fc768e8e70.png)
+
+## Gitshock resmi hesapları: [Twitter](https://twitter.com/gitshock)|[Discord](https://discord.gg/Gu22k9cu)|[Github](https://github.com/gitshock-labs)|[Docs](https://docs.gitshock.com/)
+
+</div>
+
+# Gitshock Chain EVM Testnet
+> ### Cartenz Chain, Gitshock EVM testneti için oluşturulmuş bir Ethereum Beaconchain forkudur.
+
+> ### Bir node oluşturup blok zincire bağlanabilmek için Client yazılımları kullanmak gerekir. Cartenz Chain, EVM uyumlu bir blok zincir olduğundan Ethereum clientleri  Cartenz Chaine bağlanmak için kullanılır. 
+> ### Bu rehberde Execution layer için ***Erigon***, Consensus layer için ***Lighthouse*** clientlerini kullanarak Cartenz Chaine bağlanacağız. (başka clientler ile de ağa katılınabilir.)
+
+> ### Kısaca bu rehberde yapacaklarınız:
+> - Sunucu güvenlik ayarları
+> - Go, Erion, Rust, Lighthouse yazılımları ve tüm bunlar için gerekli kütüphanelerin kurulumu.
+> - Cartenz chain kaynak dosyalarının kurulumu
+> - Execution layer çalıştırma
+> - Birinci ve ardından ikinci consensus layerlerini çalıştırma
+> - Senkronize olmayı beklemek
+> - Valiadtörünüz için anahtar çiftleri oluşturmak (cüzdan)
+> - Bunun için gitshockun `staking-deposit-cli` aracını kurmak gerekecek.
+> - Validatör node başlatmak
+
+
+
+
+
+
+
+# Sunucu
 ```
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev jq build-essential git screen make ncdu -y
 ```
+# Güvenlik
+> ### Bu kısım isteğe bağlı.
+
+> ### Nodu korumak ve güvenceye almak için bazı temel güvenlik ayarları yapılması gerekir. Burada basit olan ssh portunu değiştirme ve firewal yapılandırmasını anlatacağım. Gitshockun tavsiye ettiği daha kapsamlı güvenlik ayarlarını yapmak isterseniz: [Link](https://docs.gitshock.com/gitshock-testnet-overview/gitshock-chain-evm-testnet/secure-the-server#secure-the-server)
+
+## SSH portunu değiştirin
+> `1024–49151` arasında bir port seçin `8545,30303,5052,5053,9000,8550,8551` portları haricinde. Seçtiğiniz portun boşta olduğunu öğrenmek için `sudo netstat -tnlp | grep :<PortNumarası>` komutunu kullanabilirsiniz. Komut bir çıktı vermiyorsa bu portu kullanan bir şey yok demektir.
+
+> SSH yapılandırmasını değiştirin
+> - `sudo nano /etc/ssh/sshd_config` komutu ile dosya içine girin.
+> - Yön tuşları ile `#Port 22` yazan kısıma gelin `#` işarteini silip `22` yerine değiştirmek istediğiniz port numarasını girin.
+> - `CTRL+X` ardından `y` ardından `Enter` ile kaydedip çıkın.
+
+> SSH servisi yeniden başlatın
+> - `sudo systemctl restart ssh`
+> - Oturumu kapatın ardından yeniden bağlanın. Bağlanırken ssh için değiştirdiğiniz portu kullanmayı unutmayın.
+
+## Firewall yapılandırması
+> Default olarak tüm gelen trafiği reddedip giden trafiğe izin verin
+> - `sudo ufw default deny incoming`
+> - `sudo ufw default allow outgoing`
+
+> SSH portuna izin verin
+> - `sudo ufw allow <SSHPort>/tcp`
+> - `SSHPort` yazan yeri kendi belirlediğiniz port numarası ile değiştirmeyi unutmayın.
+
+> Kullanılacak portları açın
+> - `sudo ufw allow 42069`
+> - `sudo ufw allow 42069/tcp`
+> - `sudo ufw allow 42069/udp`
+> - `sudo ufw allow 8545/tcp`
+> - `sudo ufw allow 8550/tcp`
+> - `sudo ufw allow 8551/tcp`
+> - `sudo ufw allow 5052/tcp` 
+> - `sudo ufw allow 5053/tcp` 
+> - `sudo ufw allow 9000/tcp`
+> - `sudo ufw allow 30303/tcp`
+> - `sudo ufw allow 30303/udp`
+> - `sudo ufw allow 3000`
+
+> Firewall etkinleştirin
+> - `sudo ufw enable`
+> - `ufw status` komutu ile ayarları görüntüleyebilirsiniz.
+
+
 # Go
 ```
 cd
@@ -43,12 +120,11 @@ cd lighthouse
 git checkout stable
 make
 ```
-# Cartenz chain kaynak dosyaları
+# Cartenz Chain kaynak dosyaları
 ```
 cd
 git clone https://github.com/gitshock-labs/testnet-list
 ```
-
 
 # JWT Secret oluşturun
 ```
@@ -56,6 +132,7 @@ cd testnet-list
 openssl rand -hex 32 | tr -d "\n" > "jwt.hex" 
 ```
 # Loglar ve data için klasörler
+> ### Komutları tek tek girin.
 ```
 mkdir beacon-1
 mkdir beacon-2 
@@ -65,8 +142,10 @@ cd logs
 touch erigon.log
 touch beacon_1.log
 touch beacon_2.log
+touch validator.log
 cd ..
 ```
+
 # İnit
 ```
 erigon --datadir "cartenz-data" init execution/genesis.json
@@ -100,7 +179,7 @@ nohup erigon \
 
 
 
-loglara bakmak için
+## Loglara bakmak için
 ```
 tail -f /root/testnet-list/logs/erigon.log
 ```
@@ -108,7 +187,9 @@ tail -f /root/testnet-list/logs/erigon.log
 
 
 
-birinci consensus layeri
+# Lighthouse
+> ### Lighthuse clienti ile birinci consensus layeri başlatın.
+> ### `graffiti`kısmına kendi isminizi yazın. `CüzdanAdresi` değiştirmeyi unutmayın.
 ```
 nohup lighthouse \
 --testnet-dir="/root/testnet-list/consensus" \
@@ -127,42 +208,27 @@ bn \
 --discovery-port=9000 \
 --graffiti "Platon" \
 --jwt-secrets="/root/testnet-list/jwt.hex" \
---suggested-fee-recipient=0xcC464A650e0697d3D5709aec7e9F83C994c0862e \
+--suggested-fee-recipient=CüzdanAdresi \
 > /root/testnet-list/logs/beacon_1.log &
 ```
 
-
-
-```
-nohup lighthouse beacon \
---eth1 \
---http \
---testnet-dir /root/cartenz/consensus \
---datadir "/root/.cartenz/beacon" \
---http-allow-sync-stalled \
---execution-endpoints http://127.0.0.1:8551 \
---http-port=5052 \
---enr-udp-port=9000 \
---enr-tcp-port=9000 \
---discovery-port=9000 \
---graffiti "Platon" \
---execution-jwt "/root/cartenz/jwt.hex" \
---suggested-fee-recipient=0xcC464A650e0697d3D5709aec7e9F83C994c0862e \
-> /$HOME/logs/beacon_1.log &
-```
-
-ENR key oluşturma
+# ENR key oluşturma
+> ### Çıktısını kaydedip saklayın.
 ```
 curl http://localhost:5052/eth/v1/node/identity | jq 
 ```
+## Loglara bakmak için
+```
+tail -f /root/testnet-list/logs/beacon_1.log
+```
 
-
-iknci consensus layer
+# İkinci consensus layer
+> ### `CüzdanAdresi` yazan yeri değiştirmeyi unutmayın.
 ```
 nohup lighthouse \
---testnet-dir /root/cartenz/consensus \
+--testnet-dir /root/testnet-list/consensus \
 bn \
---datadir "/root/.cartenz/beacon2" \
+--datadir "/root/testnet-list/beacon-2" \
 --eth1 \
 --http \
 --http-allow-sync-stalled \
@@ -176,12 +242,15 @@ bn \
 --enr-tcp-port 9001 \
 --port 9001 \
 --enr-address 54.82.42.159 \
---execution-jwt "/root/cartenz/jwt.hex" \
---suggested-fee-recipient="0xcC464A650e0697d3D5709aec7e9F83C994c0862e" \
+--execution-jwt "/root/testnet-list/jwt.hex" \
+--suggested-fee-recipient="CüzdanAdresi" \
 --boot-nodes="enr:-LS4QGnk8Zno9yQ7LJF3xDXrkcAAWh74W7Tn8Z-GRBgwMIoDBP9Bofx1JMGOcvbNKWM6PBvTHCk26uLZB6TE441GwIMBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___gmlkgnY0iXNlY3AyNTZrMaED0hIIiBqEo19u2jrhpWVOBtjqMtvm-PQoWMDaUSs5sRSIc3luY25ldHMAg3RjcIIjKIN1ZHCCIyg,enr:-MS4QHXShZPtKwtexK2p9yCxMxDwQ-EvdH_VemoxyVyweuaBLOC_8cmOzyx7Gy-q6-X8KGT1d_rhAn_ekXnhpCkA_REHh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQJB10N42nK6rr7Q_NIJNkJFi2uo6itMTOQlPZDcCy09T4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MS4QEw_RpORuoXgJ0279QuVLLFAiXevNdYtU7vR8S1CY7X9CS6tceMbaxdIIJYRmHN43ClqHtE2b0H0maSb18cm9D0Hh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQOkQIyCVHLbLjIFMjqNSJEUsbYMe4Tsv9blUWvN6Rsft4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIymDdWRwgiMp" \
 > /root/logs/beacon_2.log &
 ```
-
+## Log kontrolü
+```
+tail -f /root/testnet-list/logs/beacon_2.log
+```
 
 
 
