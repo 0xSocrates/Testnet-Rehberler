@@ -19,7 +19,7 @@
 > ### System requirements (recommended):
 >  - 4CPU 4GB RAM 250-500 GB SSD
 
-# Server Update
+# Update Server
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
@@ -110,7 +110,7 @@ sudo python3 setup.py install
 > - ![image](https://user-images.githubusercontent.com/108215275/229634571-69ba507a-b2eb-41b5-be20-fb1b648f4b1f.png)
 > 
 
-# Create a JWT Secre
+# Create a JWT Secret
 ```
 cd ..
 openssl rand -hex 32 | tr -d "\n" > "jwt.hex"
