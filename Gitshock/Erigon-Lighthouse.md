@@ -245,7 +245,6 @@ tail -f /root/testnet-list/logs/beacon_2.log
 ```
 
 
-<h1 align="center"> Sonraki İşlemler İçin Güncelleme Bekliyoruz </h1>
 
 
 
