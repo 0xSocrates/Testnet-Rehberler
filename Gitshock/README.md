@@ -18,7 +18,7 @@
 > ### Bu rehberde Execution layer için ***Erigon***, Consensus layer için ***Lighthouse*** clientlerini kullanarak Cartenz Chaine bağlanacağız. (başka clientler ile de ağa katılınabilir.)
 
 > ### Kısaca bu rehberde yapacaklarınız:
-> - Sunucu güvenlik ayarları
+> - Sunucu güvenlik ayarları (opsiyonel)
 > - Go, Erion, Rust, Lighthouse yazılımları ve tüm bunlar için gerekli kütüphanelerin kurulumu.
 > - Cartenz chain kaynak dosyalarının kurulumu
 > - Execution layer çalıştırma
@@ -151,7 +151,7 @@ cd ..
 erigon --datadir "cartenz-data" init execution/genesis.json
 ```
 
-# Erigon başlatın
+# Execution layer çalıştırın
 > identity kısmına kendi isminizi yazın.
 ```
 nohup erigon \
@@ -176,19 +176,12 @@ nohup erigon \
 > /root/testnet-list/logs/erigon.log &
 ```
 
-
-
-
 ## Loglara bakmak için
 ```
 tail -f /root/testnet-list/logs/erigon.log
 ```
-# bundan sonrasını yapma
 
-
-
-# Lighthouse
-> ### Lighthuse clienti ile birinci consensus layeri başlatın.
+# Consensus layer çalıştırın
 > ### `graffiti`kısmına kendi isminizi yazın. `CüzdanAdresi` değiştirmeyi unutmayın.
 ```
 nohup lighthouse \
@@ -222,8 +215,9 @@ curl http://localhost:5052/eth/v1/node/identity | jq
 tail -f /root/testnet-list/logs/beacon_1.log
 ```
 
-# İkinci consensus layer
+# İkinci consensus layeri çalıştırın
 > ### `CüzdanAdresi` yazan yeri değiştirmeyi unutmayın.
+
 ```
 nohup lighthouse \
 --testnet-dir /root/testnet-list/consensus \
@@ -241,23 +235,20 @@ bn \
 --enr-udp-port 9001 \
 --enr-tcp-port 9001 \
 --port 9001 \
---enr-address 54.82.42.159 \
+--enr-address $(wget -qO- eth0.me) \
 --execution-jwt "/root/testnet-list/jwt.hex" \
---suggested-fee-recipient="CüzdanAdresi" \
---boot-nodes="enr:-LS4QGnk8Zno9yQ7LJF3xDXrkcAAWh74W7Tn8Z-GRBgwMIoDBP9Bofx1JMGOcvbNKWM6PBvTHCk26uLZB6TE441GwIMBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___gmlkgnY0iXNlY3AyNTZrMaED0hIIiBqEo19u2jrhpWVOBtjqMtvm-PQoWMDaUSs5sRSIc3luY25ldHMAg3RjcIIjKIN1ZHCCIyg,enr:-MS4QHXShZPtKwtexK2p9yCxMxDwQ-EvdH_VemoxyVyweuaBLOC_8cmOzyx7Gy-q6-X8KGT1d_rhAn_ekXnhpCkA_REHh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQJB10N42nK6rr7Q_NIJNkJFi2uo6itMTOQlPZDcCy09T4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MS4QEw_RpORuoXgJ0279QuVLLFAiXevNdYtU7vR8S1CY7X9CS6tceMbaxdIIJYRmHN43ClqHtE2b0H0maSb18cm9D0Hh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQOkQIyCVHLbLjIFMjqNSJEUsbYMe4Tsv9blUWvN6Rsft4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIymDdWRwgiMp" \
-> /root/logs/beacon_2.log &
+--suggested-fee-recipient="0xE99B2338E5DD4aCAbEC589003Acc6f80b1a9235a" \
+--boot-nodes="$(curl http://localhost:5052/eth/v1/node/identity | jq .data.enr),enr:-MS4QHXShZPtKwtexK2p9yCxMxDwQ-EvdH_VemoxyVyweuaBLOC_8cmOzyx7Gy-q6-X8KGT1d_rhAn_ekXnhpCkA_REHh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQJB10N42nK6rr7Q_NIJNkJFi2uo6itMTOQlPZDcCy09T4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MS4QEw_RpORuoXgJ0279QuVLLFAiXevNdYtU7vR8S1CY7X9CS6tceMbaxdIIJYRmHN43ClqHtE2b0H0maSb18cm9D0Hh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQOkQIyCVHLbLjIFMjqNSJEUsbYMe4Tsv9blUWvN6Rsft4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIymDdWRwgiMp" \
+> /root/testnet-list/logs/beacon_2.log &
 ```
+
 ## Log kontrolü
 ```
 tail -f /root/testnet-list/logs/beacon_2.log
 ```
 
 
-
-
-
-
-
+<h1 align="center"> Sonraki İşlemler İçin Güncelleme Bekliyoruz </h1>
 
 
 
