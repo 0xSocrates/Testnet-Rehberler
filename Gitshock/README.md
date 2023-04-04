@@ -167,7 +167,7 @@ geth attach http://localhost:8545
 
 # Consensus Layer başlatın
 ```
- nohup lighthouse \
+ nohup lighthouse beacon \
 --testnet-dir="/root/testnet-list/consensus" \
 --datadir /root/testnet-list/beacon-1 \
 --eth1 \
@@ -216,7 +216,7 @@ nohup lighthouse beacon \
 --graffiti "$ISIM" \
 --suggested-fee-recipient="$CUZDAN" \
 --boot-nodes="<SizinENRKey>,enr:-MS4QHXShZPtKwtexK2p9yCxMxDwQ-EvdH_VemoxyVyweuaBLOC_8cmOzyx7Gy-q6-X8KGT1d_rhAn_ekXnhpCkA_REHh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQJB10N42nK6rr7Q_NIJNkJFi2uo6itMTOQlPZDcCy09T4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MS4QEw_RpORuoXgJ0279QuVLLFAiXevNdYtU7vR8S1CY7X9CS6tceMbaxdIIJYRmHN43ClqHtE2b0H0maSb18cm9D0Hh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQOkQIyCVHLbLjIFMjqNSJEUsbYMe4Tsv9blUWvN6Rsft4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIymDdWRwgiMp" \
-> /root/testnet-list/logs/beacon_2.log
+> /root/testnet-list/logs/beacon_2.log &
 ```
 
 # Buraya kadar hata almadan yaptıysanız
