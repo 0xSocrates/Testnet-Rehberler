@@ -167,7 +167,7 @@ geth attach http://localhost:8545
 
 # Consensus Layer başlatın
 ```
- nohup lighthouse \
+ nohup lighthouse beacon \
 --testnet-dir="/root/testnet-list/consensus" \
 --datadir /root/testnet-list/beacon-1 \
 --eth1 \
