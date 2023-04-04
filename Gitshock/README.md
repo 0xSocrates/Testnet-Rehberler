@@ -71,7 +71,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 # Kütüphaneler
 ```
-sudo apt install curl tar wget tmux htop net-tools clang  libssl-dev jq micro build-essential git screen gcc g++ cmake pkg-config llvm-dev libclang-dev clang protobuf-compiler make ncdu -y 
+sudo apt install curl tar wget tmux htop net-tools clang libssl-dev jq micro build-essential git screen gcc g++ cmake pkg-config llvm-dev libclang-dev clang protobuf-compiler make ncdu software-properties-common -y 
 ```
 
 # Go
