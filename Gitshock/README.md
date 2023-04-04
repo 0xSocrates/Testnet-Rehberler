@@ -23,6 +23,52 @@
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
+# Güvenlik ayarkarı
+> ### Bu kısım isteğe bağlı.
+
+> ### Nodu korumak ve güvenceye almak için bazı temel güvenlik ayarları yapılması gerekir. Burada basit olan ssh portunu değiştirme ve firewal yapılandırmasını anlatacağım. Gitshockun tavsiye ettiği daha kapsamlı güvenlik ayarlarını yapmak isterseniz: [Link](https://docs.gitshock.com/gitshock-testnet-overview/gitshock-chain-evm-testnet/secure-the-server#secure-the-server)
+
+## SSH portunu değiştirin
+> `1024–49151` arasında bir port seçin `8545,30303,5052,5053,9000,8550,8551` portları haricinde. Seçtiğiniz portun boşta olduğunu öğrenmek için `sudo netstat -tnlp | grep :<PortNumarası>` komutunu kullanabilirsiniz. Komut bir çıktı vermiyorsa bu portu kullanan bir şey yok demektir.
+
+> SSH yapılandırmasını değiştirin
+> - `sudo nano /etc/ssh/sshd_config` komutu ile dosya içine girin.
+> - Yön tuşları ile `#Port 22` yazan kısıma gelin `#` işarteini silip `22` yerine değiştirmek istediğiniz port numarasını girin.
+> - `CTRL+X` ardından `y` ardından `Enter` ile kaydedip çıkın.
+
+> SSH servisi yeniden başlatın
+> - `sudo systemctl restart ssh`
+> - Oturumu kapatın ardından yeniden bağlanın. Bağlanırken ssh için değiştirdiğiniz portu kullanmayı unutmayın.
+
+## Firewall yapılandırması
+> Default olarak tüm gelen trafiği reddedip giden trafiğe izin verin
+> - `sudo ufw default deny incoming`
+> - `sudo ufw default allow outgoing`
+
+> SSH portuna izin verin
+> - `sudo ufw allow <SSHPort>/tcp`
+> - `SSHPort` yazan yeri kendi belirlediğiniz port numarası ile değiştirmeyi unutmayın.
+
+> Kullanılacak portları açın
+> - `sudo ufw allow 42069`
+> - `sudo ufw allow 42069/tcp`
+> - `sudo ufw allow 42069/udp`
+> - `sudo ufw allow 8545/tcp`
+> - `sudo ufw allow 8550/tcp`
+> - `sudo ufw allow 8551/tcp`
+> - `sudo ufw allow 5051/tcp` 
+> - `sudo ufw allow 5052/tcp` 
+> - `sudo ufw allow 5053/tcp` 
+> - `sudo ufw allow 9000/tcp`
+> - `sudo ufw allow 9001/tcp`
+> - `sudo ufw allow 30303/tcp`
+> - `sudo ufw allow 30303/udp`
+> - `sudo ufw allow 3000`
+
+> Firewall etkinleştirin
+> - `sudo ufw enable`
+> - `ufw status` komutu ile ayarları görüntüleyebilirsiniz.
+
 # Kütüphaneler
 ```
 sudo apt install curl tar wget tmux htop net-tools clang  libssl-dev jq micro build-essential git screen gcc g++ cmake pkg-config llvm-dev libclang-dev clang protobuf-compiler make ncdu -y 
