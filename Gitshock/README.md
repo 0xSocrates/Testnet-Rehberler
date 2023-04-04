@@ -74,6 +74,7 @@ git clone https://github.com/gitshock-labs/testnet-list
 # Loglar ve data için klasörler
 > ### Komutları tek tek girin.
 ```
+cd testnet-list
 mkdir beacon-1
 mkdir beacon-2 
 mkdir validator
