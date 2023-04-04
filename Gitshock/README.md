@@ -80,7 +80,7 @@ mkdir beacon-2
 mkdir validator
 mkdir logs
 cd logs
-touch erigon.log
+touch geth.log
 touch beacon_1.log
 touch beacon_2.log
 touch validator.log
