@@ -23,7 +23,7 @@
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
-# Güvenlik ayarkarı
+# Güvenlik ayarları
 > ### Bu kısım isteğe bağlı.
 
 > ### Nodu korumak ve güvenceye almak için bazı temel güvenlik ayarları yapılması gerekir. Burada basit olan ssh portunu değiştirme ve firewal yapılandırmasını anlatacağım. Gitshockun tavsiye ettiği daha kapsamlı güvenlik ayarlarını yapmak isterseniz: [Link](https://docs.gitshock.com/gitshock-testnet-overview/gitshock-chain-evm-testnet/secure-the-server#secure-the-server)
@@ -175,6 +175,9 @@ geth account new --datadir "cartenz-data"
 
 # Execution Layer çalıştırın
 ```
+screen -S geth
+```
+```
 nohup geth \
 --http --http.api="admin,eth,net,web3,txpool" \
 --http.port 8545 \
@@ -192,8 +195,9 @@ nohup geth \
 --identity "$ISIM" \
 --cache 1024 \
 --bootnodes "enode://0e2b41699b95e8c915f4f5d18962c0d2db35dc22d3abbebbd25fc48221d1039943240ad37a6e9d853c0b4ea45da7b6b5203a7127b5858c946fc040cace8d2d63@147.75.71.217:30303,enode://45b4fff6ab970e1e490deea8a5f960d806522fafdb33c8eaa38bc0ae970efc2256fc5746f0ecfec770af24c44864a3e6772a64f2e9f031f96fd4af7fd0483110@147.75.71.217:30304" \
-> /root/testnet-list/logs/geth.log &
+> /root/testnet-list/logs/geth.log
 ```
+> ### Screenden CTRL+A+D ile çıkış yapın.
 
 # Konsola giriş yapın
 ```
@@ -218,7 +222,10 @@ geth attach http://localhost:8545
 
 # Consensus Layer başlatın
 ```
- nohup lighthouse beacon \
+screen -S beacon1
+```
+```
+nohup lighthouse beacon \
 --testnet-dir="/root/testnet-list/consensus" \
 --datadir /root/testnet-list/beacon-1 \
 --eth1 \
@@ -235,8 +242,9 @@ geth attach http://localhost:8545
 --jwt-secrets="/root/testnet-list/jwt.hex" \
 --graffiti "$ISIM" \
 --suggested-fee-recipient=$CUZDAN \
-> /root/testnet-list/logs/beacon_1.log &
+> /root/testnet-list/logs/beacon_1.log
 ```
+> ### Screenden CTRL+A+D ile çıkış yapın.
 
 # ENR Key
 > ### Çıktısını kaydedin.
@@ -246,6 +254,9 @@ curl http://localhost:5052/eth/v1/node/identity | jq
 ![image](https://user-images.githubusercontent.com/108215275/229759465-7fa81970-903e-4896-a537-ac0a9509b6cf.png)
 
 # İkinci Consensus Layer başlatın
+```
+screen -S beacon2
+```
 > ### `<SizinENRKey>` yazan yazan yere bir önceki komutta elde ettiğiniz ENR keyi girin
 ```
 nohup lighthouse beacon \
@@ -267,8 +278,9 @@ nohup lighthouse beacon \
 --graffiti "$ISIM" \
 --suggested-fee-recipient="$CUZDAN" \
 --boot-nodes="<SizinENRKey>,enr:-MS4QHXShZPtKwtexK2p9yCxMxDwQ-EvdH_VemoxyVyweuaBLOC_8cmOzyx7Gy-q6-X8KGT1d_rhAn_ekXnhpCkA_REHh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQJB10N42nK6rr7Q_NIJNkJFi2uo6itMTOQlPZDcCy09T4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MS4QEw_RpORuoXgJ0279QuVLLFAiXevNdYtU7vR8S1CY7X9CS6tceMbaxdIIJYRmHN43ClqHtE2b0H0maSb18cm9D0Hh2F0dG5ldHOIAAAAAAAAAACEZXRoMpBMfxReAmd2k___________gmlkgnY0gmlwhJNLR9mJc2VjcDI1NmsxoQOkQIyCVHLbLjIFMjqNSJEUsbYMe4Tsv9blUWvN6Rsft4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIymDdWRwgiMp" \
-> /root/testnet-list/logs/beacon_2.log &
+> /root/testnet-list/logs/beacon_2.log
 ```
+> ### Screenden CTRL+A+D ile çıkış yapın.
 
 # Buraya kadar hata almadan yaptıysanız
 
