@@ -142,10 +142,10 @@ sudo systemctl enable bazuka
 sudo systemctl start bazuka
 echo -e ""
 echo -e ""
-echo -e "\e[0;34mNode başlatıldı.\e[0m"
+echo -e "\e[0;34mNode Başlatıldı.\e[0m"
 echo -e ""
 sleep 2
-echo -e "\e[0;32mLogları Görüntülemek İçin:\033[0;35m           sudo journalctl -u bazuka -fo cat\e[0m"
+echo -e "\e[0;32mLogları Görüntülemek İçin:\033[0;35m  sudo journalctl -u bazuka -fo cat\e[0m"
 echo -e ""
 echo -e ""
 sleep 3
@@ -153,9 +153,9 @@ echo -e "\e[0;34mKurulum Tamamlandı\e[0m"
 echo -e ""
 sleep 1
 echo -e "\033[33m"
-echo -e "Validatör oluşturmadan ve işlem yapmadan önce senkonize olmayı beklemelisiniz"
-echo -e "Explorerdan nodenizi kontrol edin.  link"
-echo -e "Güncellemeler için Discordu takip etmeyi unutmayın. Sorularınız olursa yine discorddan sorabilirsiniz"
+echo -e "- Validatör oluşturmadan ve işlem yapmadan önce senkonize olmayı beklemelisiniz"
+echo -e "- Explorerdan nodenizi kontrol edin.  http://65.108.193.133:8000/"
+echo -e "- Güncellemeler için Discordu takip etmeyi unutmayın. Sorularınız olursa yine discorddan sorabilirsiniz"
 sleep 2
 echo -e ""
 echo -e ""
@@ -168,7 +168,7 @@ echo " ███╔╝  ██║██╔══╝  ╚════██║█
 echo "███████╗██║███████╗███████║██║  ██║██║  ██║    ██║ ╚████║███████╗   ██║   ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗"
 echo "╚══════╝╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝  ╚═══╝╚══════╝   ╚═╝    ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝"
 echo "                                                                                                             "
-echo "                                    Towards Lİghter Blockchains                                              "
+echo "                                    Towards Lighter Blockchains                                              "
 echo -e '\e[0m'
 echo -e ""
 echo -e ""
