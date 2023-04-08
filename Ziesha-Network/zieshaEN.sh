@@ -153,7 +153,7 @@ echo -e "\e[0;34mInstallation Complete\e[0m"
 echo -e ""
 sleep 1
 echo -e "\033[33m"
-echo -e "- You must wait to sync before creating a validator or make transactions"
+echo -e "- You must wait to sync before making transactions."
 echo -e "- Check your node in Explorer.  http://65.108.193.133:8000/"
 echo -e "- Don't forget to follow Discord for updates. If you have any questions you can ask on discord."
 sleep 2
