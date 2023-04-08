@@ -1,4 +1,6 @@
 #!/bin/bash
+clear
+sleep 1
 echo -e '\e[0;35m'
 echo -e ' '
 echo -e '                  __                           _              '
