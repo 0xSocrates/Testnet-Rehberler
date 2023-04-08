@@ -153,7 +153,7 @@ echo -e "\e[0;34mKurulum Tamamlandı\e[0m"
 echo -e ""
 sleep 1
 echo -e "\033[33m"
-echo -e "- Validatör oluşturmadan ve işlem yapmadan önce senkonize olmayı beklemelisiniz"
+echo -e "- İşlem yapmadan önce senkonize olmayı beklemelisiniz"
 echo -e "- Explorerdan nodenizi kontrol edin.  http://65.108.193.133:8000/"
 echo -e "- Güncellemeler için Discordu takip etmeyi unutmayın. Sorularınız olursa yine discorddan sorabilirsiniz"
 sleep 2
