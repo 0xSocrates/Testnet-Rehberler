@@ -22,3 +22,68 @@ wget https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-
 > ### Kurulumu tamamladıkran sonra, yapılacak diğer işlemler ve gelecek güncellemeler için Discord duyurularını takip etmeyi unutmatın.
 > ### Sorularınız olursa yine discorddan sorabilirsiniz.
 
+# Komutlar
+
+> ### Logları görüntülemek
+```
+sudo journalctl -u bazuka -fo cat
+```
+> ### Restart
+```
+sudo systemctl restart bazuka
+```
+
+> Cüzdan bilgisi
+```
+bazuka wallet info
+```
+> ### Token gönderme
+```
+bazuka wallet send --amount <miktar> --from <adres> --to <hedefadres>
+```
+> ### Validatör oluşturma
+```
+bazuka wallet register-validator --commision <commision>
+```
+> ###  Delegate 
+```
+bazuka wallet delegate --amount <miktar> --fee <fee> --to <validatöradresi>
+```
+> ### ReClaim
+```
+bazuka wallet reclaim-delegate --amount <miktar> --fee <fee> --from <validatöradresi>
+```
+> ### Token oluşturma
+```
+bazuka wallet new-token --name <isim> --supply <supply> --symbol <sembol>
+```
+> ### Cüzdana token ekleme
+```
+bazuka wallet add-token --id <id>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
