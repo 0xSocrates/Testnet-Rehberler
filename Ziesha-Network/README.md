@@ -32,8 +32,12 @@ sudo journalctl -u bazuka -fo cat
 ```
 sudo systemctl restart bazuka
 ```
+> ### Node durumunu görüntüleyin
+```
+bazuka node status
+```
 
-> Cüzdan bilgisi
+> ### Cüzdan bilgisi
 ```
 bazuka wallet info
 ```
