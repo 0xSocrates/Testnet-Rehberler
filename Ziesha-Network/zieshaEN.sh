@@ -16,6 +16,7 @@ echo -e ''
 sleep 4
 echo -e "\e[0;34mZiesha Installation is Starting.\033[0m"
 echo -e ''
+cd /$HOME
 rm -rf .bazuka
 rm -rf .bazuka.yaml
 rm -rf .bazuka-wallet
@@ -140,6 +141,8 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable bazuka
 sudo systemctl start bazuka
+sudo systemctl restart bazuka
+source "$HOME/.cargo/env"
 echo -e ""
 echo -e ""
 echo -e "\e[0;34mNode Started.\e[0m"
