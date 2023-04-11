@@ -65,7 +65,14 @@ bazuka wallet new-token --name <isim> --supply <supply> --symbol <sembol>
 ```
 bazuka wallet add-token --id <id>
 ```
-
+> ### Pendingdeki işlmeleri tekrar gönderme
+```
+bazuka wallet resend-pending
+```
+> ### Wallet nonce sıfırlama
+```
+bazuka wallet reset
+```
 
 
 
