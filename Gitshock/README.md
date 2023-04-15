@@ -338,7 +338,7 @@ nohup lighthouse beacon \
 > - Bu adımda daha önce bilgisayarınıza yedeklediğiniz `deposit_data-xxx.json` dosyasını yükleyin ve **CONTINUE** tıklayın.
 > - Cüzdanınızı bağlayın **CONTINUE** basın
 > - Açılan sayfada uyarıların, bilgilendirmelerin olduğu kutucukların hepsini işaretleyin.
-> - Son olarak **CONFİRM DEPOSİT** dedikten sonra cüzdan onayı verin ve işlen tamam.
+> - Son olarak **CONFİRM DEPOSİT** dedikten sonra cüzdan onayı verin ve işlem tamam.
 
 # Validatör
 
@@ -351,7 +351,7 @@ cd /root/testnet-list
 ```
 nano password.txt
 ```
-> Dosya içine validatör keyleri oluştururken kullandığınız şifreyi yazın. CTRL+X Y ENTER ile kaydedip çıkın.
+> ### Dosya içine validatör keyleri oluştururken kullandığınız şifreyi yazın. CTRL+X Y ENTER ile kaydedip çıkın.
 
 ## Validatör keyleri import edin
 ```
