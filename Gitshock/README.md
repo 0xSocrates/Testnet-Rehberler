@@ -375,8 +375,13 @@ lighthouse vc --suggested-fee-recipient $CUZDAN  --metrics-address 0.0.0.0 --met
 
 ![image](https://user-images.githubusercontent.com/108215275/232234956-91a46435-89ac-48da-b1b5-414ae95228b6.png)
 
+# 
+
+> ### Loglara bakmak için `screen -r validator` ile screene girebilirsiniz. CTRL+A+D ile çıkış yapın
 
 
+> ## Loglar böyle görünecek
+![image](https://user-images.githubusercontent.com/108215275/232235483-8040d1a4-3b60-459e-99c6-431dc1a3ccc9.png)
 
 
 
