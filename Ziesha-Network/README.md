@@ -17,7 +17,7 @@
 > ### Testnete, hazırladığım script ile tek komut kullanarak katılabilirsiniz.
 > ### Komutu girin ve yönergeleri takip edin.
 ```
-wget https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/ziesha.sh && chmod +x ziesha.sh && bash ./ziesha.sh
+wget -q -O ziesha.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/ziesha.sh && chmod +x ziesha.sh && bash ./ziesha.sh
 ```
 > ### Kurulumu tamamladıkran sonra, yapılacak diğer işlemler ve gelecek güncellemeler için Discord duyurularını takip etmeyi unutmatın.
 > ### Sorularınız olursa yine discorddan sorabilirsiniz.
