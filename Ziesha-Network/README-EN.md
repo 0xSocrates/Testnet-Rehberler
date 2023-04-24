@@ -49,7 +49,7 @@ bazuka wallet send --amount <amount> --fee <fee> --from <from> --to <to>
 ```
 > ### Register validator
 ```
-bazuka wallet register-validator --commision <commision>
+bazuka wallet register-validator --commission <commision>
 ```
 > ### Delegate to a validator
 ```
