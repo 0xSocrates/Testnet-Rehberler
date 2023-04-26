@@ -178,7 +178,7 @@ geth account new --datadir "cartenz-data"
 screen -S geth
 ```
 ```
-nohup geth \
+geth \
 --http --http.api="admin,eth,net,web3,txpool" \
 --http.port 8545 \
 --authrpc.port 8551 \
@@ -225,7 +225,7 @@ geth attach http://localhost:8545
 screen -S beacon1
 ```
 ```
-nohup lighthouse beacon \
+lighthouse beacon \
 --testnet-dir="/root/testnet-list/consensus" \
 --datadir /root/testnet-list/beacon-1 \
 --eth1 \
@@ -259,7 +259,7 @@ screen -S beacon2
 ```
 > ### `<SizinENRKey>` yazan yazan yere bir önceki komutta elde ettiğiniz ENR keyi girin
 ```
-nohup lighthouse beacon \
+lighthouse beacon \
 --testnet-dir="/root/testnet-list/consensus" \
 --datadir /root/testnet-list/beacon-2 \
 --http \
