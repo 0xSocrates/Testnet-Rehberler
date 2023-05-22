@@ -23,6 +23,7 @@ sleep 1
 echo -e '\e[0;34m' && echo "Bazuka Version Updated" && echo -e '\e[0m'
 sudo systemctl start bazuka
 sudo systemctl restart bazuka
+source "$HOME/.cargo/env"
 sleep 1
 echo -e '\e[0;34m' && echo "Node Started" && echo -e '\e[0m'
 sleep 2
