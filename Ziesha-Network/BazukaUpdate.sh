@@ -8,7 +8,7 @@ echo " +-+-+-+-+-+-+-+-+"
 echo -e '\e[0m'
 sleep 2 
 echo -e "\e[0;34mBAZUKA UPDATE SCRIPT\033[0m"
-slepp 1
+sleep 1
 echo ""
 echo ""
 sudo systemctl stop bazuka
