@@ -80,21 +80,20 @@ echo -e "\033[0;35m"
 read -p "Seçiminiz (1/2): " CUZDAN
 echo ""
 echo -e '\e[0m'
-while [[ $CUZDAN != "1" && $CUZDAN != "2" ]];
- do 
- echo "\033[031mHatalı seçim yaptınız\033[0m"
- echo ""
- sleep 2
- echo -e "\e[0;32mCüzdan seçiminizi yapın\033[0m"
- sleep 1
- echo -e "\e[0;33m"
- echo -e "1-) Eski cüzdanımı kullanmak istiyorum."
- echo -e "2-) Yeni bir cüzdan oluştur."
- echo -e "\033[0;35m"
- read -p "Seçiminiz (1/2): " CUZDAN
- echo ""
- echo -e '\e[0m'
-done 
+while [[ $CUZDAN != "1" && $CUZDAN != "2" ]]; do
+  echo -e "\033[31mHatalı seçim yaptınız\033[0m"
+  echo ""
+  sleep 2
+  echo -e "\033[0;32mCüzdan seçiminizi yapın\033[0m"
+  sleep 1
+  echo -e "\033[0;33m"
+  echo -e "1-) Eski cüzdanımı kullanmak istiyorum."
+  echo -e "2-) Yeni bir cüzdan oluştur."
+  echo -e "\033[0;35m"
+  read -p "Seçiminiz (1/2): " CUZDAN
+  echo ""
+  echo -e '\033[0m'
+done
 
 if [ $CUZDAN == "1" ]; then
  sleep 1
