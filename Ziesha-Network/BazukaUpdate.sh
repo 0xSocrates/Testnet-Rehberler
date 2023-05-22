@@ -7,7 +7,7 @@ echo " |S|o|c|r|a|t|e|s|"
 echo " +-+-+-+-+-+-+-+-+"
 echo -e '\e[0m'
 sleep 2 
-echo -e "\e[0;38mBAZUKA UPDATE SCRIPT\033[0m"
+echo -e "\e[0;36mBAZUKA UPDATE SCRIPT\033[0m"
 sleep 1
 echo ""
 echo ""
