@@ -23,7 +23,7 @@ for english version: [click](https://github.com/0xSocrates/Testnet-Rehberler/blo
 #
 > ## Bu komut girip yönergeleri takip ederek kurulumu tamamlayabilirsiniz.
 ```
-curl -sSL https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/ziesha.sh | bash
+curl -sSL -o ziesha.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/ziesha.sh && chmod +x ziesha.sh && bash ziesha.sh
 ```
 > ## Node kurulumunu tamamladıktan sonra bu komut ile validatörünüzü kaydedin
 ```
