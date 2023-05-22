@@ -21,7 +21,7 @@
 # 
 > ## You can complete the installation by running this command and following the instructions:
 ```
-curl -sSL https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/zieshaEN.sh | bash
+curl -sSL -o ziesha.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/zieshaEN.sh && chmod +x ziesha.sh && bash ziesha.sh
 ```
 
 > ## After completing the node installation, use this command to register your validator:
