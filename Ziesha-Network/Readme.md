@@ -1,3 +1,5 @@
+for english version: [click](https://github.com/0xSocrates/Testnet-Rehberler/blob/main/Ziesha-Network/ReadmeEN.md)
+
 <h1 align="center"> Ziesha Network | Deruny Testnet </h1>
 
 <div align="center">
