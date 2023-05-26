@@ -33,6 +33,10 @@ bazuka wallet register-validator --commission <commission>
 ```
 bazuka wallet delegate --amount <amount> --fee <fee> --to <validatoraddress>
 ```
+> ## Use this command when there is an update
+```
+curl -sSL https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/BazukaUpdate.sh | bash
+```
 ## That's all for now. Don't forget to stay tuned for announcements and updates.
 #
 
