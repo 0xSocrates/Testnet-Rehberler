@@ -125,7 +125,7 @@ cascadiad tx staking create-validator \
   --min-self-delegation "1" \
   --pubkey  $(cascadiad tendermint show-validator) \
   --moniker MONİKER \
-  --chain-id cascadia_6102-1
+  --chain-id cascadia_6102-1 \
   --gas auto \
   --fees 300000000aCC \
   -y
