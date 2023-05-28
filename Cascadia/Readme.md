@@ -51,6 +51,14 @@ peers="001933f36a6ec7c45b3c4cef073d0372daa5344d@194.163.155.84:49656,f78611ffa95
 ```
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.cascadiad/config/config.toml
 ```
+# Genesis ve Addrbook
+```
+curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Cascadia/genesis.json > $HOME/.cascadiad/config/genesis.json
+```
+```
+curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Cascadia/addrbook.json > $HOME/.cascadiad/config/addrbook.json
+```
+
 
 # Puruning ve İndexer
 > ### İkisi de opsiyoneldir. Daha az depolama alanı kullanımı sağlar aynı zamanda daha fazla cpu ve ram gücü tüketir
