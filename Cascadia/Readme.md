@@ -23,8 +23,10 @@ sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev j
 cd
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
 echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
+echo 'export GOROOT=/usr/local/go' >> $HOME/.bash_profile
+echo 'export GOPATH=$HOME/go' >> $HOME/.bash_profile
+echo 'export GO111MODULE=on' >> $HOME/.bash_profile &&  . $HOME/.bash_profile
 rm -rf go1.20.4.linux-amd64.tar.gz
 ```
 # Binary Kurulumu
