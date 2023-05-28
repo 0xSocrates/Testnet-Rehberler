@@ -27,10 +27,9 @@ export PATH=$PATH:/usr/local/go/bin
 echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
 rm -rf go1.20.4.linux-amd64.tar.gz
 ```
-
 # Binary Kurulumu
 ```
-git clone https://github.com/cascadiafoundation/cascadia
+git clone https://github.com/CascadiaFoundation/cascadia.git
 cd cascadia
 git checkout v0.1.2
 make install
