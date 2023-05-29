@@ -12,6 +12,8 @@ sleep 1
 echo ""
 echo ""
 sudo systemctl stop bazuka
+rm -rf /root/.bazuka
+bazuka wallet reset
 echo -e '\e[0;34m' && echo "Bazuka Node Stopped" && echo -e '\e[0m'
 cd bazuka
 git pull origin master
