@@ -21,6 +21,7 @@ rm -rf .bazuka
 rm -rf .bazuka.yaml
 rm -rf .bazuka-wallet
 rm -rf bazuka
+sudo killall bazuka
 screen -X -S kill ziesha
 screen -X -S kill bazuka
 rm -rf /root/.cargo/bin/bazuka
