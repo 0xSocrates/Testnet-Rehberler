@@ -66,7 +66,7 @@ rm -rf go1.20.4.linux-amd64.tar.gz
 exec > /dev/tty 2>&1
 echo -e '\e[0;32m✔'
 echo -e ''
-echo -e "\e[0;36m$(go version) Kuruldu\033[0m"
+echo -e "\e[0;33m$(go version) Kuruldu\033[0m"
 echo -e ''
 sleep 1
 echo -e "\e[0;34mEmpowerchain Kuruluyor\033[0m"
@@ -79,7 +79,8 @@ git checkout v0.0.3
 make install 
 exec > /dev/tty 2>&1
 echo -e '\e[0;32m✔'
-echo -e "\e[0;36mEmpowerd $(empowerd version) Kuruldu\033[0m"
+echo -e ''
+echo -e "\e[0;33mEmpowerd $(empowerd version) Kuruldu\033[0m"
 sleep 1
 echo -e ''
 echo -e ''
