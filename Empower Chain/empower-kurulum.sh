@@ -80,19 +80,16 @@ echo -e ''
 echo -e "\e[0;33mEmpowerd $(empowerd version) Kuruldu\033[0m"
 sleep 1
 echo -e ''
-echo -e ''
-
-echo -e "\e[0;34mEmpowerd İnitalize\033[0m"
+exec > /dev/null 2>&1
 empowerd config chain-id circulus-1
 empowerd config keyring-backend test
 empowerd config node tcp://localhost:15057
-echo -e '\e[0;32m✔\033[0m'
-echo -e ''
 empowerd init $MONIKER --chain-id circulus-1
+exec > /dev/tty 2>&1
+echo -e "\e[0;34mEmpowerd İnitalize\033[0m"
+echo -e '\e[0;32m✔\033[0m'
 sleep 2
 echo -e ''
-echo -e ''
-
 echo -e "\e[0;34mYapılandırma Dosyası Ayarları Yapılıyor\033[0m"
 sleep 1
 exec > /dev/null 2>&1
