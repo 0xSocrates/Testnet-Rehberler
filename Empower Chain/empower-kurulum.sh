@@ -86,7 +86,7 @@ empowerd config keyring-backend test
 empowerd config node tcp://localhost:15057
 empowerd init $MONIKER --chain-id circulus-1
 exec > /dev/tty 2>&1
-echo -e "\e[0;34mEmpowerd İnitalize\033[0m"
+echo -e "\e[0;34mEmpowerd İnit\033[0m"
 echo -e '\e[0;32m✔\033[0m'
 sleep 2
 echo -e ''
