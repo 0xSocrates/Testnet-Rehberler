@@ -1,120 +1,76 @@
-# Empower Chain Incentivized Testnet
-## 31 Mayısta başlıyor
-## Script ile Kurulum
+<h1 align="center"> EmpowerChain | Circulus Testnet </h1>
+
+<div align="center"
+     
+![image](https://github.com/0xSocrates/Testnet-Rehberler/assets/108215275/f5e9add1-5b55-40d2-83dd-539cbf64c266)     
+     
+# [Twitter](https://twitter.com/empowerchain_io) | [Discord](https://discord.gg/nVTPukf2) | [Github](https://github.com/EmpowerPlastic) | [Docs](https://docs.empowerchain.io/)   
+     
+ </div>
+ 
+#
+## Herkese merhaba arkadaşlar daha önce katıldığımız EmpowerChain'in beklenen ödüllü testneti başladı.
+## Kuruluma başlamadan önce kısaca bilmeniz gerkenler
+>  Testnet 3 aşamadan oluşuyor
+ > -  1. 31 Mayıs - 6 Haziran: Ağ önyükleme aşaması
+ > -  2. 7 Haziran - 20 Haziran: Ana aşama
+ > -  3. 21 Haziran - 25 Haziran: Stres testi aşaması
+
+> Ödüller 1 yıl lineer vestingli
+>
+> Testnet sonunda KYC olacak
+> 
+> Gereksinimler 4 CPU Çekirdeği 16GB RAM 500+ GB SSD
+#
+## Testnet ile ilgili tüm sorularınıza cevap bulacağınız bu [dökümanı](https://docs.empowerchain.io/testnet/overview) mutlaka okuyun.
+#
+### Manuel kurulum yapmak istyenler için [rehber](https://github.com/0xSocrates/Testnet-Rehberler/edit/main/Empower%20Chain/Manuel-Kurulum.md)
+### Script ile kurulum yapmak için aşağıdaki komutu girin
+
 ```
-wget -O empower-kurulum.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Empower%20Chain/empower-kurulum.sh && chmod +x empower-kurulum.sh && bash ./empower-kurulum.sh
+curl -sSL -o empower-kurulum.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Empower%20Chain/empower-kurulum.sh && chmod +x empower-kurulum.sh && bash ./empower-kurulum.sh
 ``` 
-# Güncelleme ve Kütüphaneler
-```
-sudo apt-get update -y && sudo apt-get upgrade -y
-``` 
-```
-sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev jq build-essential git screen make ncdu -y
-```
-# Go
-```
-cd
-wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
-echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
-rm -rf go1.20.4.linux-amd64.tar.gz
-```
-
-# Binary Kurulumu
-```
-git clone https://github.com/EmpowerPlastic/empowerchain.git
-```
-```
-cd empowerchain/chain
-make install
-```
-# İnit
-```
-empoverd init Socrates --chain-id circulus
-```
-# Config
-```
-genesis addrbook peer seed
-```
-# Puruning
-```
-pruning="custom"
-pruning_keep_recent="100"
-pruning_keep_every="0"
-pruning_interval="50"
-sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.empowerchain/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.empowerchain/config/app.toml
-sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.empowerchain/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.empowerchain/config/app.toml
-```
-
-# İndexer
-```
-indexer="null"
-sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.empowerchain/config/config.toml
-```
-
-
-# Service
-```
-sudo tee /etc/systemd/system/empowerd.service > /dev/null <<EOF
-[Unit]
-Description=EmpowerChain Node
-After=network-online.target
-[Service]
-User=$USER
-ExecStart=$(which empowerd) start --home $HOME/.empowerchain
-Restart=on-failure
-RestartSec=3
-LimitNOFILE=65535
-[Install]
-WantedBy=multi-user.target
-EOF
-```
-# Başlat
-```
-sudo systemctl daemon-reload
-sudo systemctl enable empowerd
-sudo systemctl restart empowerd
-```
-# Log Kontrolü
-```
-sudo journalctl -u empowerd -fo cat
-```
-# Cüzdan oluştuma
+#
+### Kurulum tamamlandıktan sonra cüzdan oluşturun
 ```
 empowerd keys add wallet
-``` 
-> ### Mnemonic kaydetmeyi ve saklamayı unutmayın
- 
-> ## Cüzdanınızı recover etmek için
 ```
-empowerd keys add wallet --recover
-``` 
-
-# Validatör
+### Senkronize olmayı bekleyin ardından validatör oluşturun
 ```
 empowerd tx staking create-validator \
-  --amount 8000000umpwr \
+  --amount 1000000umpwr \
   --from wallet \
   --commission-max-change-rate "0.01" \
   --commission-max-rate "0.2" \
-  --commission-rate "0.06" \
+  --commission-rate "0.1" \
   --min-self-delegation "1" \
   --pubkey  $(empowerd tendermint show-validator) \
-  --moniker Socrates \
-  --website "https://github.com/0xSocrates"
-  --identity 52B4347D67822C \
+  --moniker $MONIKER \
+  --website "websiteniz"
+  --identity keybase.io idniz \
   --details "Core Node Community" \
-  --chain-id circulus
+  --chain-id circulus-1
   --y
- ```
+```
+
+# Faydalı Linkler
+
+## [Komutlar](https://github.com/Core-Node-Team/CosmosSDK-Node/blob/main/Ortak-Komutlar.md)
+## [Node Yedekleme ve Taşıma](https://github.com/Core-Node-Team/CosmosSDK-Node/blob/main/Yedekleme%20ve%20Ta%C5%9F%C4%B1ma.md)
+## [Port Değiştirme](https://github.com/Core-Node-Team/CosmosSDK-Node/blob/main/Port%20de%C4%9Fi%C5%9Ftirme.md)
+## [Sync-Peer-FAQ](https://github.com/Core-Node-Team/Cosmos-Aglarinda-Node-Calistirmak/blob/main/Sync-Peer%20Nedir.md)
 
 
+<div align="center">
 
+# Core Node Sosyal Medya [Twitter](https://twitter.com/corenodeHQ)|[Discord](https://discord.gg/fzzUAU9k)|[Telegram](https://t.me/corenodechat)
+  
+![1500x500](https://github.com/Core-Node-Team/Testnet-TR/assets/108215275/92b50dd4-8043-4500-b906-bc8d15b75525)
 
+## Sorularınız olursa telegram sohbet grubumuz ve discord sunucumuza katılabilirsiniz.
+#
 
+</div>
 
 
 
