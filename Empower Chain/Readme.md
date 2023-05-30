@@ -1,6 +1,9 @@
 # Empower Chain Incentivized Testnet
 ## 31 Mayısta başlıyor
-
+## Script ile Kurulum
+```
+wget -O empower-kurulum.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Empower%20Chain/empower-kurulum.sh && chmod +x empower-kurulum.sh && bash ./empower-kurulum.sh
+``` 
 # Güncelleme ve Kütüphaneler
 ```
 sudo apt-get update -y && sudo apt-get upgrade -y
