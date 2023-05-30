@@ -16,7 +16,6 @@ echo -e ''
 sleep 4
 echo -e "\e[0;34mEmpower Kurulumu Başlatılıyor\033[0m"
 echo -e ''
-echo -e ''
 sleep 2
 echo -e '\e[0;35m' && read -p "Moniker isminizi girin: " MONIKER 
 echo -e "\033[035mMoniker isminiz\033[034m $MONIKER \033[035molarak kaydedildi"
@@ -34,7 +33,6 @@ exec > /dev/tty 2>&1
 echo -e "\e[0;34mEski Veriler Silindi\033[0m"
 echo -e '\e[0;32m✔'
 echo -e ''
-echo -e ''
 sleep 1
 echo -e "\e[0;34mSunucu Güncelleniyor\033[0m"
 sleep 1
@@ -50,7 +48,6 @@ exec > /dev/null 2>&1
 sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev jq build-essential git screen make ncdu -y
 exec > /dev/tty 2>&1
 echo -e '\e[0;32m✔'
-echo -e ''
 echo -e ''
 sleep 1
 echo -e "\e[0;34mGo Yükleniyor\033[0m"
@@ -128,9 +125,6 @@ exec > /dev/null 2>&1
 sudo systemctl stop empowerd
 sudo systemctl disable empowerd
 sudo rm -rf /etc/systemd/system/empowerd.service
-exec > /dev/tty 2>&1
-echo -e "\e[0;34mService Dosyası Oluşturuldu\033[0m"
-exec > /dev/null 2>&1
 sudo tee /etc/systemd/system/empowerd.service > /dev/null <<EOF
 [Unit]
 Description=EmpowerChain Node
@@ -154,7 +148,7 @@ echo -e ' '
 echo -e "\e[0;34mNode Başlatıldı\033[0m"
 sleep 1
 echo -e ""
-echo -e "\e[0;32mLogları Görüntülemek İçin:\033[0;35m           sudo journalctl -u empowerd -fo cat\e[0m"
+echo -e "\e[0;32mLogları Görüntülemek İçin:\033[0;33m           sudo journalctl -u empowerd -fo cat\e[0m"
 echo -e ""
 echo -e ""
 echo -e "\e[0;34mKurulum Tamamlandı\e[0m\u2600"
@@ -171,3 +165,5 @@ echo -e ''
 echo -e '\e[0m'
 echo -e ''
 echo -e ''
+curl -sSL https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Scripts/y%C4%B1ld%C4%B1z.sh | bash
+
