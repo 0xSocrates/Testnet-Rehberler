@@ -14,7 +14,7 @@ for ((i=0; i<STAR_COUNT; i++)); do
   x=$((RANDOM % COLS))
   y=$((RANDOM % ROWS))
   tput cup $y $x
-  printf "\e[34m★\e[0m"
+  printf "\e[36m★\e[0m"
 done
 
 # İmleci sona taşıma
