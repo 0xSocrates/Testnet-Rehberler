@@ -1,7 +1,7 @@
 #!/bin/bash
 exec > /dev/null 2>&1
 clear
-apt install cmatrix
+sudo apt-get install cmatrix -y
 exec > /dev/tty 2>&1
 cmatrix &
 sleep 6
