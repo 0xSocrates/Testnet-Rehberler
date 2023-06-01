@@ -7,13 +7,13 @@ sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev j
 ```
 # Go
 ```
-cd
+cd $HOME
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
-echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 echo 'export GOROOT=/usr/local/go' >> $HOME/.bash_profile
 echo 'export GOPATH=$HOME/go' >> $HOME/.bash_profile
-echo 'export GO111MODULE=on' >> $HOME/.bash_profile &&  . $HOME/.bash_profile
+echo 'export GO111MODULE=on' >> $HOME/.bash_profile
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile && . $HOME/.bash_profile
 rm -rf go1.20.4.linux-amd64.tar.gz
 ```
 
@@ -30,11 +30,11 @@ empoverd init MONIKER --chain-id circulus-1
 ```
 # Genesis
 ```
-curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/EmpowerChain/genesis.json > $HOME/.empowerchain/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Empower%20Chain/genesis.json > $HOME/.empowerchain/config/genesis.json
 ```
 # Addrbook
 ```
-curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/EmpowerChain/addrbook.json > $HOME/.empowerchain/config/addrbook.json
+curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Empower%20Chain/addrbook.json > $HOME/.empowerchain/config/addrbook.json
 ```
 # Seeds-Peers
 ```
@@ -117,9 +117,9 @@ empowerd tx staking create-validator \
   --commission-rate "0.06" \
   --min-self-delegation "1" \
   --pubkey  $(empowerd tendermint show-validator) \
-  --moniker Socrates \
-  --website "https://github.com/0xSocrates"
-  --identity 52B4347D67822C \
+  --moniker <MONIKER> \
+  --website "<WEBSITENIZ"
+  --identity <KEYBASE.IO-ID> \
   --details "Core Node Community" \
   --chain-id circulus-1
   --y
