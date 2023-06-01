@@ -20,9 +20,8 @@ rm -rf go1.20.4.linux-amd64.tar.gz
 # Binary Kurulumu
 ```
 git clone https://github.com/EmpowerPlastic/empowerchain.git
-```
-```
 cd empowerchain/chain
+git checkout v1.0.0-rc1
 make install
 ```
 # İnit
