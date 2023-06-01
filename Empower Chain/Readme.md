@@ -60,7 +60,17 @@ empowerd tx staking create-validator \
 ## [Port Değiştirme](https://github.com/Core-Node-Team/CosmosSDK-Node/blob/main/Port%20de%C4%9Fi%C5%9Ftirme.md)
 ## [Sync-Peer-FAQ](https://github.com/Core-Node-Team/Cosmos-Aglarinda-Node-Calistirmak/blob/main/Sync-Peer%20Nedir.md)
 
-
+## Node Silmek
+```
+sudo systemctl stop empowerd && \
+sudo systemctl disable empowerd && \
+rm /etc/systemd/system/empowerd.service && \
+sudo systemctl daemon-reload && \
+cd $HOME && \
+rm -rf .empowerchain && \
+rm -rf empowerchain && \
+rm -rf $(which empowerd)
+```
 
 
 
