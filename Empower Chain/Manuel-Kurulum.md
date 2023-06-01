@@ -26,7 +26,7 @@ make install
 ```
 # İnit
 ```
-empoverd init MONIKER --chain-id circulus-1
+empowerd init MONIKER --chain-id circulus-1
 ```
 # Genesis
 ```
