@@ -8,7 +8,7 @@ sudo apt-get install cmatrix -y
 sleep 1
 exec > /dev/tty 2>&1
 cmatrix &
-sleep 6
+sleep 8
 pkill -f cmatrix
 clear
 sleep 1
