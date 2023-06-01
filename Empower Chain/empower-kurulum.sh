@@ -57,7 +57,7 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 echo 'export GOROOT=/usr/local/go' >> $HOME/.bash_profile
 echo 'export GOPATH=$HOME/go' >> $HOME/.bash_profile
 echo 'export GO111MODULE=on' >> $HOME/.bash_profile
-echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile && . $HOME/.bash_profile
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile && source $HOME/.bash_profile
 rm -rf go1.20.4.linux-amd64.tar.gz
 exec > /dev/tty 2>&1
 echo -e '\e[0;32m✔'
@@ -145,6 +145,9 @@ sleep 1
 sudo systemctl daemon-reload
 sudo systemctl enable empowerd
 sudo systemctl start empowerd
+sudo systemctl restart empowerd
+sleep 2
+source $HOME/.bash_profile
 sudo systemctl restart empowerd
 exec > /dev/tty 2>&1
 echo -e ' '
