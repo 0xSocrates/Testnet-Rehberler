@@ -124,3 +124,15 @@ empowerd tx staking create-validator \
   --chain-id circulus-1
   --y
   ```
+
+# Silmek İçin
+```
+sudo systemctl stop empowerd && \
+sudo systemctl disable empowerd && \
+rm /etc/systemd/system/empowerd.service && \
+sudo systemctl daemon-reload && \
+cd $HOME && \
+rm -rf .empowerchain && \
+rm -rf empowerchain && \
+rm -rf $(which empowerd)
+```
