@@ -30,8 +30,11 @@
 ```
 curl -sSL -o empower-kurulum.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Empower%20Chain/empower-kurulum.sh && chmod +x empower-kurulum.sh && bash ./empower-kurulum.sh
 ``` 
-#
-### Kurulum tamamlandıktan sonra cüzdan oluşturun
+### Kurulum tamamlandıktan sonra bu komutu girin
+```
+source $HOME/.bash_profile
+```
+###  cüzdan oluşturun
 ```
 empowerd keys add wallet
 ```
