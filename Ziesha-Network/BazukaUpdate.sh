@@ -11,7 +11,7 @@ echo -e "\e[0;33mBAZUKA UPDATE SCRIPT\033[0m"
 sleep 1
 echo ""
 echo ""
-echo -e '\e[0;34m' && echo "Bazuka Node Stopped" && echo -e '\e[0m'
+echo -e '\e[0;34m' && echo "Node Stopped" && echo -e '\e[0m'
 exec > /dev/null 2>&1
 sudo systemctl stop bazuka
 cd bazuka
@@ -23,7 +23,7 @@ exec > /dev/null 2>&1
 cargo install --path .
 exec > /dev/tty 2>&1
 sleep 1
-echo -e '\e[0;34m' && echo "Bazuka Version Updated" && echo -e '\e[0m'
+echo -e '\e[0;34m' && echo "Bazuka Version Updated to $(bazuka --version)" && echo -e '\e[0m'
 exec > /dev/null 2>&1
 sudo systemctl start bazuka
 sudo systemctl restart bazuka
