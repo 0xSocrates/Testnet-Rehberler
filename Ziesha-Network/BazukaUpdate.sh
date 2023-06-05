@@ -11,21 +11,24 @@ echo -e "\e[0;33mBAZUKA UPDATE SCRIPT\033[0m"
 sleep 1
 echo ""
 echo ""
-sudo systemctl stop bazuka
-rm -rf /root/.bazuka
-bazuka wallet reset
 echo -e '\e[0;34m' && echo "Bazuka Node Stopped" && echo -e '\e[0m'
+exec > /dev/null 2>&1
+sudo systemctl stop bazuka
 cd bazuka
 git pull origin master
 cargo update
-sleep 1 
+exec > /dev/tty 2>&1
 echo -e '\e[0;34m' && echo "Updating Bazuka Version" && echo -e '\e[0m'
+exec > /dev/null 2>&1
 cargo install --path .
+exec > /dev/tty 2>&1
 sleep 1
 echo -e '\e[0;34m' && echo "Bazuka Version Updated" && echo -e '\e[0m'
+exec > /dev/null 2>&1
 sudo systemctl start bazuka
 sudo systemctl restart bazuka
 source "$HOME/.cargo/env"
+exec > /dev/tty 2>&1
 sleep 1
 echo -e '\e[0;34m' && echo "Node Started" && echo -e '\e[0m'
 sleep 2
