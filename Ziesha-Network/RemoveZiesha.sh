@@ -1,5 +1,10 @@
 #!/bin/bash
 clear
+echo -e "\e[0;34mRemove Ziesha\033[0m"
+sleep 2
+clear
+curl -sSL https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Scripts/matrix.sh | bash
+exec > /dev/null 2>&1
 sudo systemctl stop bazuka
 sudo systemctl disable bazuka
 rm -rf /etc/systemd/system/bazuka.service
@@ -17,3 +22,8 @@ rm -rf .cargo
 rm -rf .rustup
 rm -rf ziesha.sh
 sudo rm -rf $(which bazuka)
+exec > /dev/tty 2>&1
+clear
+echo -e "\e[0;34mCompleted\033[0m"
+sleep 3
+clear
