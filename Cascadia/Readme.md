@@ -16,22 +16,23 @@
 ## Proje ve testnet süreci ile ilgili tüm sorularınız için [Türkiye Telegram](https://t.me/CascadiaTR) grubuna katılabilirsiniz.
 ## Sistem gereksinimleri `4CPU 8GB RAM 160GB SSD`
 
-
-
 ### Script ile kurulum yapmak için bu komutu girin
 ```
 curl -sSl cascadia-kurulum.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Cascadia/Cascadia-Kurulum.sh && chmod +x cascadia-kurulum.sh && bash ./cascadia-kurulum.sh
 ```
 ### Manuel kurulum yapmak isterseniz: [Link](https://github.com/0xSocrates/Testnet-Rehberler/blob/main/Cascadia/Manuel%20Kurulum.md)
 
-#
-## Kurulum tamamlandıktan sonra cüzdan oluşturun
+## Kurulum tamamlandıktan sonra bu komutu girin
+```
+source $HOME/.bash_profile
+```
+## Cüzdan oluşturun
 > ### Şifre oluşturmanızı isteyecek
 > ### Mnemonic kaydetmeyi ve saklamayı unutmayın.
 ```
 cascadiad keys add wallet
 ```
-> ### [Discordda](https://discord.gg/cascadia) `#faucet` kanalından test tokenlarını alın
+> ### [Discordda](https://discord.gg/cascadia) `#faucet` kanalından test tokenlarını alın ($request cüzdanadresi)
 
 ## Senkronize olduktan sonra valiadatör oluşturabilirsiniz
 > ### Sync kontrol `cascadiad status 2>&1 | jq .SyncInfo`
