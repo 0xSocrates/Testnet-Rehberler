@@ -4,6 +4,7 @@ echo -e "\e[0;34mRemove Ziesha\033[0m"
 sleep 2
 clear
 curl -sSL https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Scripts/matrix.sh | bash
+echo -e "\e[0;34mWorking\033[0m"
 exec > /dev/null 2>&1
 sudo systemctl stop bazuka
 sudo systemctl disable bazuka
