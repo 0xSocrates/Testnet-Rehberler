@@ -25,7 +25,11 @@ for english version: [click](https://github.com/0xSocrates/Testnet-Rehberler/blo
 ```
 curl -sSL -o ziesha.sh https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ziesha-Network/ziesha.sh && chmod +x ziesha.sh && bash ziesha.sh
 ```
-> ## Node kurulumunu tamamladıktan sonra bu komut ile validatörünüzü kaydedin
+> ## Kurulum tamamlandıktan sonra bu komutu girin
+```
+source "$HOME/.cargo/env"
+```
+> ## Senkronize olduktan sonra bu komut ile validatörünüzü kaydedin
 ```
 bazuka wallet register-validator --commission <commision>
 ```
