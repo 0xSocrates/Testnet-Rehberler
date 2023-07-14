@@ -16,6 +16,7 @@ echo -e ''
 sleep 4
 echo -e "\e[0;34mZiesha Kurulumu Başlatılıyor\033[0m"
 echo -e ''
+exec > /dev/null 2>&1
 cd /$HOME
 rm -rf .bazuka
 rm -rf .bazuka.yaml
@@ -26,6 +27,7 @@ screen -X -S kill ziesha
 screen -X -S kill bazuka
 rm -rf /root/.cargo/bin/bazuka
 sleep 2
+exec > /dev/tty 2>&1
 echo -e '\e[0;35m' && read -p "Discord isminizi girin: " DISCORD 
 echo -e "\033[035mDiscord isminiz\033[034m $DISCORD \033[035molarak kaydedildi"
 echo -e '\e[0m'
@@ -33,43 +35,37 @@ echo -e ''
 sleep 1
 echo -e "\e[0;34mSunucu Güncelleniyor\033[0m"
 echo -e ''
-sleep 1
+exec > /dev/null 2>&1
 sudo apt-get update && sudo apt-get upgrade 
+exec > /dev/tty 2>&1
 echo -e ''
-sleep 1
 echo -e "\e[0;34mKütüphaneler Kuruluyor\033[0m"
-echo -e ''
-sleep 1
+exec > /dev/null 2>&1
 sudo apt install curl tar wget tmux htop net-tools clang pkg-config libssl-dev jq build-essential git screen make cmake ncdu -y
+exec > /dev/tty 2>&1
 echo -e ''
 echo -e ''
 echo -e "\e[0;34mRust Kurulumu\033[0m"
-echo -e ''
-echo -e ''
-sleep 1
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
-echo ""
+
 echo ""
 sleep 2
 echo -e "\e[0;34mBazuka Kuruluyor"
 echo ""
 echo -e "\033[033mBazuka, Ziesha Network için düğüm ve cüzdan yazılımıdır.\e[0m" 
 echo ""
-echo ""
-sleep 2
+exec > /dev/null 2>&1
 git clone https://github.com/ziesha-network/bazuka
 source "$HOME/.cargo/env"
 cd bazuka
 git pull origin master
 cargo update
+exec > /dev/tty 2>&1
 cargo install --path .
 source "$HOME/.cargo/env"
-echo -e ""
-echo -e ""
-echo -e ""
 sleep 2
-
 echo ""
 echo -e "\033[0;34mBazuka Başlatılacak"
 echo ""
@@ -127,11 +123,10 @@ if [ $CUZDAN == "1" ]; then
    bazuka init --external $(wget -qO- eth0.me):8765 --bootstrap 31.210.53.186:8765
    sleep 8
 fi 
-
+exec > /dev/null 2>&1
 sudo systemctl stop bazuka
 sudo systemctl disable bazuka
 rm -rf /etc/systemd/system/bazuka.service
-
 sudo tee /etc/systemd/system/bazuka.service > /dev/null <<EOF
 [Unit]
 Description=Bazuka
@@ -150,6 +145,7 @@ sudo systemctl enable bazuka
 sudo systemctl start bazuka
 sudo systemctl restart bazuka
 source "$HOME/.cargo/env"
+exec > /dev/tty 2>&1
 echo -e ""
 echo -e ""
 echo -e "\e[0;34mNode Başlatıldı.\e[0m"
