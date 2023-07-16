@@ -31,6 +31,6 @@ screen -S pactus
 ```
 ## [Faucet](https://discord.gg/UdquSvMQh6)
 ## [Explorer](https://www.pactusscan.com/)
-
+## [Form](https://docs.google.com/forms/d/e/1FAIpQLSfJ-uiNQtGZdqdApwOCU9oF_O2qAVVa2P2EJtLJvKHxvjQhpQ/viewform)
 
 
