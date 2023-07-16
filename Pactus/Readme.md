@@ -26,6 +26,8 @@ cd build
 screen -S pactus
 ./pactus-daemon start -w=/root/.pactus
 ```
+> ### CTRL+A+D
+
 ```
 ./pactus-wallet /root/.pactus/wallets/default_wallet address all
 ```
