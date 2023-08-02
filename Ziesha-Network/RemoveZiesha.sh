@@ -1,11 +1,8 @@
 #!/bin/bash
 clear
-echo -e "\e[0;34mRemove Ziesha\033[0m"
+echo -e "\e[0;34mStarting\033[0m"
 sleep 2
 clear
-cmatrix &
-sleep 5
-pkill -f cmatrix
 exec > /dev/null 2>&1
 sudo systemctl stop bazuka
 sudo systemctl disable bazuka
@@ -27,5 +24,5 @@ sudo rm -rf $(which bazuka)
 exec > /dev/tty 2>&1
 clear
 echo -e "\e[0;34mCompleted\033[0m"
-sleep 3
+sleep 2
 clear
