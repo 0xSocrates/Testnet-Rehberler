@@ -116,6 +116,7 @@ systemctl daemon-reload
 systemctl enable $BinaryName
 systemctl start $BinaryName
 systemctl restart $BinaryName
+exec > /dev/tty 2>&1
 echo -e "\e[0;34mNode Başlatıldı. Logları takip etmek için: \033[0;33m           sudo journalctl -u $BinaryName -fo cat\033[0m"
 sleep 2
 echo " "
