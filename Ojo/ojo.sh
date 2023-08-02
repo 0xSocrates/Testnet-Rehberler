@@ -20,7 +20,8 @@ curl -Ls https://rpc.devnet-n0.ojo-devnet.node.ojo.network/genesis > $HOME/$Dire
 peers=""
 seeds=""
 sed -i -e 's|^seeds *=.*|seeds = "'$seeds'"|; s|^persistent_peers *=.*|persistent_peers = "'$peers'"|' $HOME/$DirectName/config/config.toml
-# min gas price
+sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.0001uojo"|g' $HOME/.ojo/config/app.toml
+sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.ojo/config/config.toml
 exec > /dev/tty 2>&1
 }
 
