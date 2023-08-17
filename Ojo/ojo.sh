@@ -86,6 +86,7 @@ get_moniker
 echo -e "\e[0;34mSunucu Hazırlanıyor\033[0m"
 removenode
 curl -sSL https://raw.githubusercontent.com/0xSocrates/Scripts/main/preparing-server.sh | bash
+source $HOME/.bash_profile
 echo -e "\e[0;33mGüncellendi, Kütüphaneler Kuruldu, $(go version) Kuruldu\033[0m"
 sleep 2
 echo -e "\e[0;34m$BinaryName Kuruluyor\033[0m"
