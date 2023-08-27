@@ -16,7 +16,7 @@ exec > /dev/tty 2>&1
 ge_ad_se_pe() {
 exec > /dev/null 2>&1
 curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ojo/addrbook.json > $HOME/$DirectName/config/addrbook.json
-curl -Ls https://rpc.devnet-n0.ojo-devnet.node.ojo.network/genesis > $HOME/$DirectName/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/0xSocrates/Testnet-Rehberler/main/Ojo/genesis.json > $HOME/$DirectName/config/genesis.json
 peers=""
 seeds=""
 sed -i -e 's|^seeds *=.*|seeds = "'$seeds'"|; s|^persistent_peers *=.*|persistent_peers = "'$peers'"|' $HOME/$DirectName/config/config.toml
