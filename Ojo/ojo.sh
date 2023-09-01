@@ -24,6 +24,10 @@ sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.0001uojo"|g' $HOME/.o
 sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.ojo/config/config.toml
 exec > /dev/tty 2>&1
 }
+snapshot() {
+sudo apt install liblz4-tool -y
+curl -L http://128.140.4.67/CoreNode_Chain_Services/ojo_snapshot.tar.lz4 | tar -I lz4 -xf - -C $HOME/.ojo/data
+}
 
 init() {
 exec > /dev/null 2>&1
@@ -116,6 +120,10 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable $BinaryName
+exec > /dev/tty 2>&1
+echo -e "\e[0;34mCore Node Chain Services Snapshot İndiriliyor\033[0m"
+snapshot
+exec > /dev/null 2>&1
 systemctl start $BinaryName
 systemctl restart $BinaryName
 exec > /dev/tty 2>&1
